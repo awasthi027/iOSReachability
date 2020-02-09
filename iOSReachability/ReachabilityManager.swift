@@ -11,7 +11,7 @@ import UIKit
 
 public class ReachabilityManager: NSObject {
     
-    let noNetworkView: CustomNoNetworkView = CustomNoNetworkView.init(frame:  CGRect(x: xPosition, y: CustomNoNetworkView.yPositionOfLabel(withDirection: .eTop), width: (UIScreen.main.bounds.size.width - 2*xPosition) , height: NavigationViewHeight))
+    let noNetworkView: NetworkStatusView = NetworkStatusView.init(frame:  CGRect(x: xPosition, y: NetworkStatusView.yPositionOfLabel(withDirection: .eTop), width: (UIScreen.main.bounds.size.width - 2*xPosition) , height: NavigationViewHeight))
     /** Default messsage bg color is white */
     public var msgBgColor: UIColor = .white
     /** Default  message text color black */
