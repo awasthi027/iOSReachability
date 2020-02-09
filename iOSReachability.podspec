@@ -8,7 +8,7 @@ s.summary = "This library will helpful to check internet connection and type of 
 s.requires_arc = true
 
 # 2
-s.version = "0.0.1"
+s.version = "0.0.2"
 
 # 3
   s.license = { :type => 'Copyright', :text => 'Created and licensed by Ashish Awasthi. Copyright 2019 Ashish Awasthi. All rights reserved.' }
@@ -34,7 +34,7 @@ s.source_files = "iOSReachability/**/*.{swift}"
 
 # Skip plist which is not required to share
 
-s.exclude_files = "Projectname/Projectname/*.plist"
+s.exclude_files = "iOSReachability/**/*.plist"
 
 # 9 Add Dependency of another framework
 

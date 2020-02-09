@@ -14,6 +14,7 @@
 		CB88039B23EFCE8600728E5F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB88039823EFCE8600728E5F /* Reachability.swift */; };
 		CB88039C23EFCE8600728E5F /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB88039923EFCE8600728E5F /* ReachabilityManager.swift */; };
 		CB8803AA23F01D0A00728E5F /* NetworkStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8803A923F01D0A00728E5F /* NetworkStatusView.swift */; };
+		CB8803AC23F02DFB00728E5F /* FSMainThreadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8803AB23F02DFB00728E5F /* FSMainThreadHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		CB88039823EFCE8600728E5F /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		CB88039923EFCE8600728E5F /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		CB8803A923F01D0A00728E5F /* NetworkStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatusView.swift; sourceTree = "<group>"; };
+		CB8803AB23F02DFB00728E5F /* FSMainThreadHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSMainThreadHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		CB8803A623F01CED00728E5F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CB8803AB23F02DFB00728E5F /* FSMainThreadHelper.swift */,
 				CB8803A923F01D0A00728E5F /* NetworkStatusView.swift */,
 			);
 			path = View;
@@ -218,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB8803AA23F01D0A00728E5F /* NetworkStatusView.swift in Sources */,
+				CB8803AC23F02DFB00728E5F /* FSMainThreadHelper.swift in Sources */,
 				CB88039C23EFCE8600728E5F /* ReachabilityManager.swift in Sources */,
 				CB88039B23EFCE8600728E5F /* Reachability.swift in Sources */,
 			);

@@ -11,7 +11,7 @@ import UIKit
 
 public class ReachabilityManager: NSObject {
     
-    let noNetworkView: NetworkStatusView = NetworkStatusView.init(frame:  CGRect(x: xPosition, y: NetworkStatusView.yPositionOfLabel(withDirection: .eTop), width: (UIScreen.main.bounds.size.width - 2*xPosition) , height: NavigationViewHeight))
+    var noNetworkView: NetworkStatusView?
     /** Default messsage bg color is white */
     public var msgBgColor: UIColor = .white
     /** Default  message text color black */
@@ -76,6 +76,13 @@ public class ReachabilityManager: NSObject {
         if ReachabilityManager.shared.isEnableMessageView == false {
             return
         }
-        self.noNetworkView.displayInternetStatus()
+        DispatchQueue.main.async {
+            if self.noNetworkView == nil {
+             self.noNetworkView = NetworkStatusView.init(frame:  CGRect(x: xPosition, y: NetworkStatusView.yPositionOfLabel(withDirection: .eTop), width: (UIScreen.main.bounds.size.width - 2 * xPosition) , height: NavigationViewHeight))
+            }
+            if let item  = self.noNetworkView {
+             item.displayInternetStatus()
+            }
+        }
     }
 }
