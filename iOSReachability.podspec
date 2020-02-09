@@ -32,7 +32,12 @@ s.source       = { :git => "https://github.com/awasthi027/iOSReachability.git", 
 # 8
 s.source_files = "iOSReachability/**/*.{swift}"
 
-# 9
+# Skip plist which is not required to share
+
+s.exclude_files = "Projectname/Projectname/*.plist"
+
+# 9 Add Dependency of another framework
+
 # s.resources = "iOSReachability/**/*.{png}"
 
 # 10

@@ -1,29 +1,3 @@
-/*
-Copyright (c) 2014, Ashley Mills
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-1. Redistributions of source code must retain the above copyright notice, this
-list of conditions and the following disclaimer.
-
-2. Redistributions in binary form must reproduce the above copyright notice,
-this list of conditions and the following disclaimer in the documentation
-and/or other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
-LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-POSSIBILITY OF SUCH DAMAGE.
-*/
 
 import SystemConfiguration
 import Foundation
@@ -149,61 +123,61 @@ extension Notification.Name {
     }
 }
 
- extension Reachability {
-
+extension Reachability {
+    
     // MARK: - *** Notifier methods ***
     func startNotifier() throws {
         guard !notifierRunning else { return }
-
+        
         let callback: SCNetworkReachabilityCallBack = { (reachability, flags, info) in
             guard let info = info else { return }
-
+            
             let reachability = Unmanaged<Reachability>.fromOpaque(info).takeUnretainedValue()
             reachability.flags = flags
         }
-
+        
         var context = SCNetworkReachabilityContext(version: 0, info: nil, retain: nil, release: nil, copyDescription: nil)
         context.info = UnsafeMutableRawPointer(Unmanaged<Reachability>.passUnretained(self).toOpaque())
         if !SCNetworkReachabilitySetCallback(reachabilityRef, callback, &context) {
             stopNotifier()
             throw ReachabilityError.UnableToSetCallback
         }
-
+        
         if !SCNetworkReachabilitySetDispatchQueue(reachabilityRef, reachabilitySerialQueue) {
             stopNotifier()
             throw ReachabilityError.UnableToSetDispatchQueue
         }
-
+        
         // Perform an initial check
         try setReachabilityFlags()
-
+        
         notifierRunning = true
     }
-
+    
     func stopNotifier() {
         defer { notifierRunning = false }
-
+        
         SCNetworkReachabilitySetCallback(reachabilityRef, nil, nil)
         SCNetworkReachabilitySetDispatchQueue(reachabilityRef, nil)
     }
-
+    
     // MARK: - *** Connection test methods ***
     @available(*, deprecated, message: "Please use `connection != .none`")
     var isReachable: Bool {
         return connection != .none
     }
-
+    
     @available(*, deprecated, message: "Please use `connection == .cellular`")
     var isReachableViaWWAN: Bool {
         // Check we're not on the simulator, we're REACHABLE and check we're on WWAN
         return connection == .cellular
     }
-
+    
     @available(*, deprecated, message: "Please use `connection == .wifi`")
     var isReachableViaWiFi: Bool {
         return connection == .wifi
     }
-
+    
     var description: String {
         guard let flags = flags else { return "unavailable flags" }
         let W = isRunningOnDevice ? (flags.isOnWWANFlagSet ? "W" : "-") : "X"
@@ -215,13 +189,13 @@ extension Notification.Name {
         let D = flags.isConnectionOnDemandFlagSet ? "D" : "-"
         let l = flags.isLocalAddressFlagSet ? "l" : "-"
         let d = flags.isDirectFlagSet ? "d" : "-"
-
+        
         return "\(W)\(R) \(c)\(t)\(i)\(C)\(D)\(l)\(d)"
     }
 }
 
 fileprivate extension Reachability {
-
+    
     func setReachabilityFlags() throws {
         try reachabilitySerialQueue.sync { [unowned self] in
             var flags = SCNetworkReachabilityFlags()
@@ -236,7 +210,7 @@ fileprivate extension Reachability {
     
     func reachabilityChanged() {
         let block = connection != .none ? whenReachable : whenUnreachable
-
+        
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
             block?(strongSelf)

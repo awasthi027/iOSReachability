@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 public enum UINavigationLabelAnimationDirection {
     /* Message navigation will be from top to bottom */
     case eTop
@@ -76,7 +75,6 @@ let xPosition: CGFloat = 40.0
     }
 
     func moveTitleView(inDirection direction: UINavigationLabelAnimationDirection) {
-       
         if disableViewMoving == true {
             return
         }
@@ -114,7 +112,6 @@ let xPosition: CGFloat = 40.0
         }else if direction == .eTop {
             bottomYPosition  = -NavigationViewHeight
         }
-        
         return bottomYPosition
     }
 
