@@ -13,7 +13,7 @@
 		CB88039A23EFCE8600728E5F /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = CB88039723EFCE8600728E5F /* Reachability.h */; };
 		CB88039B23EFCE8600728E5F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB88039823EFCE8600728E5F /* Reachability.swift */; };
 		CB88039C23EFCE8600728E5F /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB88039923EFCE8600728E5F /* ReachabilityManager.swift */; };
-		CB88039F23EFD33D00728E5F /* CustomNoNetworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB88039E23EFD33D00728E5F /* CustomNoNetworkView.swift */; };
+		CB8803A123F0176100728E5F /* CustomNoNetworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8803A023F0176100728E5F /* CustomNoNetworkView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,7 @@
 		CB88039723EFCE8600728E5F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		CB88039823EFCE8600728E5F /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		CB88039923EFCE8600728E5F /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
-		CB88039E23EFD33D00728E5F /* CustomNoNetworkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNoNetworkView.swift; sourceTree = "<group>"; };
+		CB8803A023F0176100728E5F /* CustomNoNetworkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNoNetworkView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +79,7 @@
 		CB88037F23EFCE6200728E5F /* iOSReachability */ = {
 			isa = PBXGroup;
 			children = (
-				CB88039D23EFD33D00728E5F /* view */,
+				CB8803A023F0176100728E5F /* CustomNoNetworkView.swift */,
 				CB88039723EFCE8600728E5F /* Reachability.h */,
 				CB88039823EFCE8600728E5F /* Reachability.swift */,
 				CB88039923EFCE8600728E5F /* ReachabilityManager.swift */,
@@ -96,14 +96,6 @@
 				CB88038D23EFCE6200728E5F /* Info.plist */,
 			);
 			path = iOSReachabilityTests;
-			sourceTree = "<group>";
-		};
-		CB88039D23EFD33D00728E5F /* view */ = {
-			isa = PBXGroup;
-			children = (
-				CB88039E23EFD33D00728E5F /* CustomNoNetworkView.swift */,
-			);
-			path = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,7 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB88039F23EFD33D00728E5F /* CustomNoNetworkView.swift in Sources */,
+				CB8803A123F0176100728E5F /* CustomNoNetworkView.swift in Sources */,
 				CB88039C23EFCE8600728E5F /* ReachabilityManager.swift in Sources */,
 				CB88039B23EFCE8600728E5F /* Reachability.swift in Sources */,
 			);
